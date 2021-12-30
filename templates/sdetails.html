@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label>user email</label> {{form.email}}
+        <input type="submit" value="fetch">
+        </form>
+
+
+    {% if res %}
+    <table border="2">
+        <tr><td>username</td><td>email</td><td>phone</td><td>gender</td><td>dob</td></tr>
+        {% for i in res %}
+        <tr><td>{{i.username}}</td><td>{{i.email}}</td><td>{{i.phone}}</td><td>{{i.gender}}</td><td>{{i.dob}}</td>
+       <td><a href="{% url 'update' email=i.email %}"><button>update</button></a></td>
+       <td><a href="{% url 'delete' email=i.email %}"><button>delete</button></a></td></tr>
+       </table>
+        {% endfor %}
+    {% else %}
+        <h3>invalid data or data is not there</h3>
+    {% endif %}
+        
+</body>
+</html>

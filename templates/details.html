@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2">
+        <tr><td>username</td><td>email</td><td>phone</td><td>gender</td><td>dob</td></tr>
+        {% for i in res %}
+        <tr><td>{{i.username}}</td><td>{{i.email}}</td><td>{{i.phone}}</td><td>{{i.gender}}</td><td>{{i.dob}}</td></tr>
+        {% endfor %}
+        </table>
+<br>
+    <a href="{% url 'sdetails' %}"><button>sdetails</button></a>
+
+</body>
+</html>
